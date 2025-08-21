@@ -564,56 +564,42 @@ const PaymentModal = ({ isOpen, onClose, amount, ticketDetails }: PaymentModalPr
               />
             </div>
           )}
-          <DialogHeader className="text-center">
-            <DialogTitle className="text-xl font-bold">Payment</DialogTitle>
-            <p id="payment-dialog-description" className="text-sm text-muted-foreground">
-              Complete your payment for the selected tickets
-            </p>
-          </DialogHeader>
+         <DialogHeader className="text-center space-y-1">
+  <DialogTitle className="text-2xl font-extrabold">Payment</DialogTitle>
+  <p id="payment-dialog-description" className="text-base text-muted-foreground">
+    Complete your payment for the selected tickets
+  </p>
+</DialogHeader>
           
           {/* Match Summary Card */}
-          {ticketDetails.matchId && matchesData[ticketDetails.matchId as keyof typeof matchesData] && (
-            <div className="bg-orange-500 text-white p-4 rounded-lg mb-4">
-              {console.log('Match ID:', ticketDetails.matchId)}
-              {console.log('Match Data:', matchesData[ticketDetails.matchId as keyof typeof matchesData])}
-              <div className="flex justify-between items-center mb-2">
-                <div className="flex items-center gap-1">
-                  <div className="w-6 h-4 rounded overflow-hidden border border-white/20">
-                    <img 
-                      src={matchesData[ticketDetails.matchId as keyof typeof matchesData].teamAFlag} 
-                      alt={`${matchesData[ticketDetails.matchId as keyof typeof matchesData].teamA} Flag`}
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        console.error('Error loading flag:', e.currentTarget.src);
-                        e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjE2IiBmaWxsPSIjZjBmMGYwIi8+PC9zdmc+';
-                      }}
-                    />
-                  </div>
-                  <span className="text-sm">{matchesData[ticketDetails.matchId as keyof typeof matchesData].teamACode}</span>
-                </div>
-                <span className="text-sm font-bold">{matchesData[ticketDetails.matchId as keyof typeof matchesData].time}</span>
-                <div className="flex items-center gap-1">
-                  <span className="text-sm">{matchesData[ticketDetails.matchId as keyof typeof matchesData].teamBCode}</span>
-                  <div className="w-6 h-4 rounded overflow-hidden border border-white/20">
-                    <img 
-                      src={matchesData[ticketDetails.matchId as keyof typeof matchesData].teamBFlag} 
-                      alt={`${matchesData[ticketDetails.matchId as keyof typeof matchesData].teamB} Flag`}
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        console.error('Error loading flag:', e.currentTarget.src);
-                        e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjI0IiBoZWlnaHQ9IjE2IiBmaWxsPSIjZjBmMGYwIi8+PC9zdmc+';
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-              <h3 className="font-bold text-center mb-1">
-                {matchesData[ticketDetails.matchId as keyof typeof matchesData].teamA} VS {matchesData[ticketDetails.matchId as keyof typeof matchesData].teamB}
-              </h3>
-              <p className="text-center text-sm opacity-90">{matchesData[ticketDetails.matchId as keyof typeof matchesData].date}</p>
-              <p className="text-center text-sm opacity-90">{matchesData[ticketDetails.matchId as keyof typeof matchesData].venue}</p>
-            </div>
-          )}
+{ticketDetails.matchId && matchesData[ticketDetails.matchId as keyof typeof matchesData] && (
+  <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-5 rounded-xl shadow-md mb-6">
+    <div className="flex justify-between items-center mb-3">
+      <div className="flex items-center gap-2">
+        <img 
+          src={matchesData[ticketDetails.matchId].teamAFlag}
+          alt=""
+          className="w-7 h-5 rounded border border-white/30 object-cover"
+        />
+        <span className="text-base font-medium">{matchesData[ticketDetails.matchId].teamACode}</span>
+      </div>
+      <span className="text-sm font-bold">{matchesData[ticketDetails.matchId].time}</span>
+      <div className="flex items-center gap-2">
+        <span className="text-base font-medium">{matchesData[ticketDetails.matchId].teamBCode}</span>
+        <img 
+          src={matchesData[ticketDetails.matchId].teamBFlag}
+          alt=""
+          className="w-7 h-5 rounded border border-white/30 object-cover"
+        />
+      </div>
+    </div>
+    <h3 className="text-lg font-semibold text-center mb-1">
+      {matchesData[ticketDetails.matchId].teamA} VS {matchesData[ticketDetails.matchId].teamB}
+    </h3>
+    <p className="text-center text-sm opacity-90">{matchesData[ticketDetails.matchId].date}</p>
+    <p className="text-center text-sm opacity-90">{matchesData[ticketDetails.matchId].venue}</p>
+  </div>
+)}
 
           {/* Your Seats */}
           <div className="mb-4">
@@ -624,224 +610,71 @@ const PaymentModal = ({ isOpen, onClose, amount, ticketDetails }: PaymentModalPr
           </div>
 
           {/* Order Summary */}
-          <div className="mb-4">
-            <h4 className="font-semibold mb-2">Order Summary</h4>
-            <div className="space-y-2">
-              <div className="flex justify-between">
-                <span className="text-sm">{ticketDetails.quantity} × {ticketDetails.type}</span>
-                <span className="text-sm font-medium">{amount}</span>
-              </div>
-              <div className="border-t pt-2">
-                <div className="flex justify-between">
-                  <span className="text-sm">Subtotal</span>
-                  <span className="text-sm">{amount}</span>
-                </div>
-                <div className="flex justify-between font-bold">
-                  <span>Total</span>
-                  <span>{amount}</span>
-                </div>
-              </div>
-            </div>
-          </div>
+<div className="mb-6">
+  <h4 className="font-semibold text-lg mb-3">Order Summary</h4>
+  <div className="space-y-2 text-base">
+    <div className="flex justify-between">
+      <span>{ticketDetails.quantity} × {ticketDetails.type}</span>
+      <span className="font-medium">{amount}</span>
+    </div>
+    <div className="border-t pt-2">
+      <div className="flex justify-between">
+        <span>Subtotal</span>
+        <span>{amount}</span>
+      </div>
+      <div className="flex justify-between font-bold text-lg">
+        <span>Total</span>
+        <span>{amount}</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-          {/* Bio Details */}
-          <div className="mb-4">
-            <h4 className="font-semibold mb-2">Bio Details</h4>
-            <div className="space-y-3">
-              <div>
-                <Label htmlFor="fullName" className="text-sm">Full Name *</Label>
-                <Input
-                  id="fullName"
-                  type="text"
-                  placeholder="Enter full name"
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                  className="mt-1"
-                />
-              </div>
-              <div>
-                <Label htmlFor="email" className="text-sm">Email Address *</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="Enter email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="mt-1"
-                />
-              </div>
-            </div>
-          </div>
+{/* Bio Details */}
+<div className="mb-6">
+  <h4 className="font-semibold text-lg mb-3">Bio Details</h4>
+  <div className="space-y-4">
+    <Input id="fullName" placeholder="Enter full name" className="rounded-lg text-base h-12" />
+    <Input id="email" placeholder="Enter email address" className="rounded-lg text-base h-12" />
+  </div>
+</div>
 
-          {/* Payment Method */}
-          <div className="mb-4">
-            <h4 className="font-semibold mb-2">Payment method</h4>
-            <Tabs defaultValue="mpesa" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 h-12">
-                <TabsTrigger value="mpesa" className="h-10 bg-orange-500 text-white data-[state=active]:bg-orange-600">
-                  M-PESA
-                </TabsTrigger>
-                <TabsTrigger value="card" className="h-10 bg-gray-200 text-gray-700 data-[state=active]:bg-gray-300">
-                  Card
-                </TabsTrigger>
-              </TabsList>
-              
-              <TabsContent value="mpesa" className="space-y-4 mt-4">
-                <div>
-                  <Label htmlFor="mpesa-number" className="text-sm">M-Pesa Number *</Label>
-                  <Input
-                    id="mpesa-number"
-                    placeholder="254XXXXXXXXX"
-                    value={mpesaNumber}
-                    onChange={(e) => setMpesaNumber(e.target.value)}
-                    className="mt-1"
-                  />
-                </div>
-                <div className="space-y-4">
-                <Button 
-                  onClick={handleMpesaPayment}
-                  disabled={isProcessing || paymentStatus === 'success'}
-                  className="w-full bg-orange-500 hover:bg-orange-600 h-12"
-                >
-                  {paymentStatus === 'initiating' ? (
-                    <>
-                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                      Initiating Payment...
-                    </>
-                  ) : isProcessing ? (
-                    <>
-                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                      Sending STK Push...
-                    </>
-                  ) : paymentStatus === 'success' ? (
-                    <>
-                      <CheckCircle className="w-4 h-4 mr-2" />
-                      Payment Successful!
-                    </>
-                  ) : paymentStatus === 'failed' ? (
-                    <>
-                      <XCircle className="w-4 h-4 mr-2" />
-                      Try Again
-                    </>
-                  ) : (
-                    `Pay ${amount} via M-Pesa`
-                  )}
-                </Button>
-                  
-                  {paymentStatus === 'success' && (
-                    <div className="text-center space-y-2">
-                      <div className="flex items-center justify-center gap-2 text-green-600">
-                        <CheckCircle className="w-5 h-5" />
-                        <p className="text-sm font-medium">Payment received successfully!</p>
-                      </div>
-                      <Button
-                        onClick={() => setShowETicket(true)}
-                        className="w-full bg-green-600 hover:bg-green-700"
-                      >
-                        View E-Ticket
-                      </Button>
-                    </div>
-                  )}
+{/* Payment Method */}
+<div className="mb-6">
+  <h4 className="font-semibold text-lg mb-3">Payment Method</h4>
+  <Tabs defaultValue="mpesa" className="w-full">
+    <TabsList className="grid w-full grid-cols-2 rounded-lg overflow-hidden h-12 mb-4">
+      <TabsTrigger value="mpesa" className="text-base font-medium data-[state=active]:bg-orange-600 text-white">
+        M-PESA
+      </TabsTrigger>
+      <TabsTrigger value="card" className="text-base font-medium data-[state=active]:bg-orange-600 text-white">
+        Card
+      </TabsTrigger>
+    </TabsList>
 
-                  {paymentStatus === 'failed' && paymentError && (
-                    <div className="text-center space-y-2">
-                      <div className="flex items-center justify-center gap-2 text-red-600">
-                        <XCircle className="w-5 h-5" />
-                        <p className="text-sm font-medium">Verification Failed</p>
-                      </div>
-                      <p className="text-xs text-muted-foreground">{paymentError}</p>
-                      {/* Add manual verification option */}
-                      <div className="mt-4 p-4 bg-orange-50 rounded-lg">
-                        <p className="text-sm text-orange-700 mb-2">
-                          If you received an M-PESA confirmation message but don't see your ticket:
-                        </p>
-                        <Button
-                          onClick={() => checkPaymentStatus(transactionId!)}
-                          className="w-full bg-orange-500 hover:bg-orange-600"
-                        >
-                          Verify Payment Again
-                        </Button>
-                      </div>
-                    </div>
-                  )}
+    <TabsContent value="mpesa">
+      <Input id="mpesa-number" placeholder="254XXXXXXXXX" className="rounded-lg text-base h-12 mb-4" />
+      <Button className="w-full h-14 text-base font-semibold bg-orange-500 hover:bg-orange-600">
+        Pay {amount} via M-Pesa
+      </Button>
+    </TabsContent>
 
-                  {transactionId && paymentStatus === 'pending' && (
-                    <div className="text-center space-y-2">
-                      <div className="flex items-center justify-center gap-2 text-orange-600">
-                        <AlertCircle className="w-5 h-5" />
-                        <p className="text-sm font-medium text-center">
-                          Please check your phone and enter your M-PESA PIN
-                        </p>
-                      </div>
-                      <div className="flex items-center justify-center gap-2 mt-2">
-                        <Loader2 className="w-4 h-4 animate-spin" />
-                        <span className="text-sm text-muted-foreground">Waiting for payment confirmation...</span>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </TabsContent>
-              
-              <TabsContent value="card" className="space-y-4 mt-4">
-                <div>
-                  <Label htmlFor="card-name" className="text-sm">Cardholder Name *</Label>
-                  <Input
-                    id="card-name"
-                    placeholder="John Doe"
-                    value={cardDetails.name}
-                    onChange={(e) => setCardDetails({...cardDetails, name: e.target.value})}
-                    className="mt-1"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="card-number" className="text-sm">Card Number *</Label>
-                  <Input
-                    id="card-number"
-                    placeholder="1234 5678 9012 3456"
-                    value={cardDetails.number}
-                    onChange={(e) => setCardDetails({...cardDetails, number: e.target.value})}
-                    className="mt-1"
-                  />
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="card-expiry" className="text-sm">Expiry *</Label>
-                    <Input
-                      id="card-expiry"
-                      placeholder="MM/YY"
-                      value={cardDetails.expiry}
-                      onChange={(e) => setCardDetails({...cardDetails, expiry: e.target.value})}
-                      className="mt-1"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="card-cvv" className="text-sm">CVV *</Label>
-                    <Input
-                      id="card-cvv"
-                      placeholder="123"
-                      value={cardDetails.cvv}
-                      onChange={(e) => setCardDetails({...cardDetails, cvv: e.target.value})}
-                      className="mt-1"
-                    />
-                  </div>
-                </div>
-                <Button 
-                  onClick={handleCardPayment}
-                  disabled={isProcessing}
-                  className="w-full bg-orange-500 hover:bg-orange-600 h-12"
-                >
-                  {isProcessing ? (
-                    <>
-                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                      Processing Payment...
-                    </>
-                  ) : (
-                    `Pay ${amount} via Card`
-                  )}
-                </Button>
-              </TabsContent>
-            </Tabs>
-          </div>
+    <TabsContent value="card">
+      {/* Card Fields */}
+      <div className="space-y-4">
+        <Input placeholder="Cardholder Name" className="rounded-lg text-base h-12" />
+        <Input placeholder="1234 5678 9012 3456" className="rounded-lg text-base h-12" />
+        <div className="grid grid-cols-2 gap-4">
+          <Input placeholder="MM/YY" className="rounded-lg text-base h-12" />
+          <Input placeholder="CVV" className="rounded-lg text-base h-12" />
+        </div>
+        <Button className="w-full h-14 text-base font-semibold bg-orange-500 hover:bg-orange-600">
+          Pay {amount} via Card
+        </Button>
+      </div>
+    </TabsContent>
+  </Tabs>
+</div>
         </DialogContent>
       </Dialog>
 
