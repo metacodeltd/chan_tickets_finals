@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search, MapPin, Calendar, Clock } from "lucide-react";
 import TopBar from "@/components/TopBar";
-import heroImage from "@/assets/chan-banner.png";
+import heroImage from "@/assets/newBanner.png";
 import chanLogo from "@/assets/chann.png";
 import kenyaFlag from "@/assets/kenya.png";
 import madagascarFlag from "@/assets/madagascar.png";
