@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search, MapPin, Calendar, Clock } from "lucide-react";
 import TopBar from "@/components/TopBar";
-import heroImage from "@/assets/chan-banner.png";
+import heroImage from "@/assets/newBanner.png";
 import chanLogo from "@/assets/chann.png";
 import kenyaFlag from "@/assets/kenya.png";
 import madagascarFlag from "@/assets/madagascar.png";
@@ -112,60 +112,58 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Mobile Layout */}
-      <div className="lg:hidden">
-        <TopBar />
-        {/* Mobile Hero with Banner */}
-        <div 
-          className="w-full relative aspect-[2/1]"
-          style={{ 
-            backgroundImage: `url(${heroImage})`,
-            backgroundSize: '100% 100%',
-            backgroundRepeat: 'no-repeat',
-            backgroundColor: '#f8f8f8'
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+     {/* Mobile Layout */}
+<div className="lg:hidden">
+  <TopBar />
+  
+  {/* Mobile Hero with Banner */}
+  <div className="w-full relative">
+    <img 
+      src={heroImage} 
+      alt="Hero Banner" 
+      className="w-full h-auto"   // ✅ no stretching
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+  </div>
+
+  {/* Mobile Search Form */}
+  <div className="max-w-md mx-auto px-4 -mt-6 relative z-10">
+    <Card className="shadow-lg">
+      <CardContent className="space-y-3 px-4 pb-4 pt-4">
+        <div>
+          <label className="text-sm font-medium mb-2 block">Search Team</label>
+          <Select value={selectedTeam} onValueChange={setSelectedTeam}>
+            <SelectTrigger>
+              <SelectValue placeholder="Select Team" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="kenya">Kenya</SelectItem>
+              <SelectItem value="madagascar">Madagascar</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
         
+        <div>
+          <label className="text-sm font-medium mb-2 block">Location</label>
+          <Select value={selectedLocation} onValueChange={setSelectedLocation}>
+            <SelectTrigger>
+              <SelectValue placeholder="Select Location" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="kasarani">Moi Sports Centre Kasarani</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
-        {/* Mobile Search Form */}
-        <div className="max-w-md mx-auto px-4 -mt-6 relative z-10">
-          <Card className="shadow-lg">
-            <CardContent className="space-y-3 px-4 pb-4 pt-4">
-              <div>
-                <label className="text-sm font-medium mb-2 block">Search Team</label>
-                <Select value={selectedTeam} onValueChange={setSelectedTeam}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select Team" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="kenya">Kenya</SelectItem>
-                    <SelectItem value="madagascar">Madagascar</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              
-              <div>
-                <label className="text-sm font-medium mb-2 block">Location</label>
-                <Select value={selectedLocation} onValueChange={setSelectedLocation}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select Location" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="kasarani">Moi Sports Centre Kasarani</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+        <Button className="w-full bg-[#E76222] hover:bg-[#E76222]/90 text-white">
+          <Search className="w-4 h-4 mr-2" />
+          Find Matches
+        </Button>
+      </CardContent>
+    </Card>
+  </div>
+</div>
 
-              <Button className="w-full bg-[#E76222] hover:bg-[#E76222]/90 text-white">
-                <Search className="w-4 h-4 mr-2" />
-                Find Matches
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
 
       {/* Upcoming Matches Section - Both Desktop and Mobile */}
       <div className="max-w-6xl mx-auto px-4 py-8 lg:py-16">

@@ -19,9 +19,14 @@ const PAYHERO_CONFIG = {
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:8080', 'http://localhost:8081'], // Your frontend URLs
+  origin: [
+    'http://localhost:8080',
+    'http://localhost:8081',
+    'https://chan-tickets-ecru.vercel.app' // ✅ allow deployed frontend
+  ],
   credentials: true
 }));
+
 app.use(express.json());
 
 // In-memory storage for demo (use a proper database in production)
