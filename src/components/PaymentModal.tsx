@@ -47,29 +47,29 @@ interface PaymentModalProps {
 // Match data constant
 const matchesData = {
   "1": {
-    teamA: "Kenya",
-    teamB: "Madagascar",
-    teamACode: "KEN",
-    teamBCode: "MAD",
+    teamA: "TBD",
+    teamB: "TBD",
+    teamACode: "TBD",
+    teamBCode: "TBD",
     teamAFlag: kenyaFlag,
-    teamBFlag: madagascarFlag,
-    date: "22 Aug 2025",
-    time: "17:00",
+    teamBFlag: kenyaFlag,
+    date: "30 Aug 2025",
+    time: "18:00",
     venue: "Moi Sports Centre Kasarani",
     gateOpenTime: "15:00"
   },
-  "2": {
-    teamA: "Tanzania",
-    teamB: "Morocco",
-    teamACode: "TZ",
-    teamBCode: "MAR",
-    teamAFlag: tanzaniaFlag,
-    teamBFlag: moroccoFlag,
-    date: "22 Aug 2025",
-    time: "20:00",
-    venue: "Benjamin Mkapa National Stadium",
-    gateOpenTime: "18:00"
-  }
+  // "2": {
+  //   teamA: "Tanzania",
+  //   teamB: "Morocco",
+  //   teamACode: "TZ",
+  //   teamBCode: "MAR",
+  //   teamAFlag: tanzaniaFlag,
+  //   teamBFlag: moroccoFlag,
+  //   date: "22 Aug 2025",
+  //   time: "20:00",
+  //   venue: "Benjamin Mkapa National Stadium",
+  //   gateOpenTime: "18:00"
+  // }
 };
 
 const PaymentModal = ({ isOpen, onClose, amount, ticketDetails }: PaymentModalProps) => {

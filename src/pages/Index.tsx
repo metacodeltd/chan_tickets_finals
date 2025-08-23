@@ -20,26 +20,26 @@ const Index = () => {
   const upcomingMatches = [
     {
       id: "1",
-      date: "22 Aug 2025",
-      homeTeam: "KEN",
-      awayTeam: "MAD",
+      date: "30 Aug 2025",
+      homeTeam: "TBD",
+      awayTeam: "TBD",
       homeFlag: kenyaFlag,
-      awayFlag: madagascarFlag,
-      time: "17:00",
+      awayFlag: kenyaFlag,
+      time: "18:00",
       venue: "Moi Sports Centre Kasarani",
-      price: 250
+      price: 150
     },
-    {
-      id: "2",
-      date: "22 Aug 2025",
-      homeTeam: "TAN",
-      awayTeam: "MOR",
-      homeFlag: tzFlag,
-      awayFlag: marFlag,
-      time: "20:00",
-      venue: "Benjamin Mkapa National Stadium",
-      price: 50
-    }
+    // {
+    //   id: "2",
+    //   date: "22 Aug 2025",
+    //   homeTeam: "TAN",
+    //   awayTeam: "MOR",
+    //   homeFlag: tzFlag,
+    //   awayFlag: marFlag,
+    //   time: "20:00",
+    //   venue: "Benjamin Mkapa National Stadium",
+    //   price: 50
+    // },
   ];
 
   const handleMatchSelect = (matchId: string) => {

@@ -10,7 +10,7 @@ const TopBar = () => {
     <div className="w-full bg-[#FA5501] p-4 flex items-center justify-between">
       <div className="flex items-center gap-3">
         <div className=" rounded-lg p-2">
-          <img src={chanLogo} alt="CHAN 2024" className="h-10 w-auto" />
+          <img src={chanLogo} alt="CHAN 2024" className="h-6 w-auto" />
         </div>
       
       </div>

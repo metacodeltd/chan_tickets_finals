@@ -19,21 +19,21 @@ const TicketSelection = () => {
   // Match data
   const matches = {
     "1": {
-      homeTeam: "KEN",
-      awayTeam: "MAD",
+      homeTeam: "TBD",
+      awayTeam: "TBD",
       venue: "Moi Sports Centre Kasarani",
       tickets: [
         {
           type: "Regular",
-          basePrice: 250,
-          price: "KES 250",
+          basePrice: 150,
+          price: "KES 150",
           description: "Gates open 15:00 hrs",
           available: true
         },
         {
           type: "VIP",
-          basePrice: 500,
-          price: "KES 500",
+          basePrice: 300,
+          price: "KES 300",
           description: "Gates open 15:00 hrs, VIP seating",
           available: true
         }
