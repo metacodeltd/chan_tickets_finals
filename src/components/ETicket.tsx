@@ -72,7 +72,7 @@ const ETicket = ({ isOpen, onClose, ticketData }: ETicketProps) => {
       // Add CHAN 2024 title
       pdf.setTextColor(17, 24, 39);
       pdf.setFontSize(8);
-      pdf.text("CHAN 2024 Quarterfinals", margin, 25);
+      pdf.text("CHAN 2024 FINALS", margin, 25);
 
       // Add match details
       pdf.setFont("helvetica", "bold");
@@ -81,14 +81,14 @@ const ETicket = ({ isOpen, onClose, ticketData }: ETicketProps) => {
       pdf.text(matchText, margin, 31);
       
       // Add kick-off time
-      pdf.setFontSize(7);
-      pdf.setTextColor(100);
-      pdf.text("Kick-off", pageWidth - 25, 25);
-      pdf.setTextColor(17, 24, 39);
-      pdf.setFontSize(10);
-      pdf.text(ticketData.matchTime, pageWidth - 25, 31);
+      // pdf.setFontSize(7);
+      // pdf.setTextColor(100);
+      // pdf.text("Kick-off", pageWidth - 25, 25);
+      // pdf.setTextColor(17, 24, 39);
+      // pdf.setFontSize(10);
+      // pdf.text(ticketData.matchTime, pageWidth - 25, 31);
 
-      // Add kick-off time with text label
+      // // Add kick-off time with text label
       pdf.setFontSize(10);
       pdf.setTextColor(100, 100, 100);
       const kickoffX = pageWidth - margin - 20; // Adjusted position from right
@@ -211,7 +211,7 @@ const ETicket = ({ isOpen, onClose, ticketData }: ETicketProps) => {
         <div id="ticket-content" className="bg-[#f8fafc] p-6 space-y-4">
           <div>
             <div className="space-y-1">
-              <h2 className="text-base text-gray-900">CHAN 2024 Quarterfinals</h2>
+              <h2 className="text-base text-gray-900">CHAN 2024 FINALS</h2>
               <div className="flex justify-between items-center">
                 <h3 className="text-2xl font-bold text-gray-900">{ticketData.teamA} Vs {ticketData.teamB}</h3>
                 <div className="text-right">
