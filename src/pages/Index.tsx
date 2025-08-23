@@ -20,7 +20,7 @@ const Index = () => {
   const upcomingMatches = [
     {
       id: "1",
-      date: "30 Aug 2025",
+      date: "Sat 30 Aug 2025",
       homeTeam: "TBD",
       awayTeam: "TBD",
       homeFlag: kenyaFlag,
