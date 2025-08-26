@@ -27,7 +27,7 @@ const Index = () => {
       awayFlag: marFlag,
       time: "18:00",
       venue: "Moi Sports Centre Kasarani",
-      price: 150
+      price: 200
     },
     // {
     //   id: "2",
