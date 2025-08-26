@@ -47,11 +47,11 @@ interface PaymentModalProps {
 // Match data constant
 const matchesData = {
   "1": {
-    teamA: "TBD",
+    teamA: "MAD",
     teamB: "TBD",
-    teamACode: "TBD",
+    teamACode: "MAD",
     teamBCode: "TBD",
-    teamAFlag: kenyaFlag,
+    teamAFlag: madagascarFlag,
     teamBFlag: kenyaFlag,
     date: "30 Aug 2025",
     time: "18:00",

@@ -21,9 +21,9 @@ const Index = () => {
     {
       id: "1",
       date: "Sat 30 Aug 2025",
-      homeTeam: "TBD",
+      homeTeam: "MAD",
       awayTeam: "TBD",
-      homeFlag: kenyaFlag,
+      homeFlag: madagascarFlag,
       awayFlag: kenyaFlag,
       time: "18:00",
       venue: "Moi Sports Centre Kasarani",
