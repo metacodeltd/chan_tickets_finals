@@ -22,9 +22,9 @@ const Index = () => {
       id: "1",
       date: "Sat 30 Aug 2025",
       homeTeam: "MAD",
-      awayTeam: "TBD",
+      awayTeam: "MAR",
       homeFlag: madagascarFlag,
-      awayFlag: kenyaFlag,
+      awayFlag: marFlag,
       time: "18:00",
       venue: "Moi Sports Centre Kasarani",
       price: 150

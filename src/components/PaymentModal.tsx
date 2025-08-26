@@ -48,11 +48,11 @@ interface PaymentModalProps {
 const matchesData = {
   "1": {
     teamA: "MAD",
-    teamB: "TBD",
+    teamB: "MAR",
     teamACode: "MAD",
-    teamBCode: "TBD",
+    teamBCode: "MAR",
     teamAFlag: madagascarFlag,
-    teamBFlag: kenyaFlag,
+    teamBFlag: moroccoFlag,
     date: "30 Aug 2025",
     time: "18:00",
     venue: "Moi Sports Centre Kasarani",

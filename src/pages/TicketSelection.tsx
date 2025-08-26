@@ -20,7 +20,7 @@ const TicketSelection = () => {
   const matches = {
     "1": {
       homeTeam: "MAD",
-      awayTeam: "TBD",
+      awayTeam: "MAR",
       venue: "Moi Sports Centre Kasarani",
       tickets: [
         {
